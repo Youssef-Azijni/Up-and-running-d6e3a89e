@@ -1,3 +1,4 @@
+// @codingStandardsIgnoreStart
 <?php
 $host = 'localhost';
 $db   = 'netland';
@@ -17,45 +18,5 @@ try {
 } catch (PDOException $e) {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
+// @codingStandardsIgnoreEnd
 
-echo "<h1>Welcome, this is your $db control panel, change whatever you like. </h1>";
-
-$seriesDATA = 'SELECT * FROM series';
-
-$seriesQuery = $pdo->query($seriesDATA);
-$series = seriesQuery->fetchALL(PDO::FETCH_ASSOC);
-
-echo "
-<h2>Series </h2>
-<table>
-    <tr>
-        <td style="font - weight:bold"> Title </td>
-        <td style="font - weight:bold"> Title </td>
-    <tr>
-";
-
-foreach ($series as $row) {
-    echo "
-    <tr>
-        <td>$row[title]</td>
-        <td>$row[rating]</td>
-    <tr>";
-}
-
-echo "</table>";
-
-$moviesDATA = 'SELECT * FROM movies';
-
-$moviesQuery = $pdo->query($moviesDATA);
-$movies = $moviesQuery->fetchAll(PDO::FETCH_ASSOC);
-
-
-foreach ($movies as $row) {
-    echo "
-        <tr> 
-            <td>$row[title]</td>
-             <td>$row[duur]</td>
-        </tr> ";
-}
-
-echo "</table>";
