@@ -1,7 +1,7 @@
-// @codingStandardsIgnoreStart
+
 <?php
-$host = 'localhost';
-$db   = 'netland';
+$host = '127.0.0.1:3306';
+$db = 'netland';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';
@@ -18,5 +18,5 @@ try {
 } catch (PDOException $e) {
     throw new PDOException($e->getMessage(), (int)$e->getCode());
 }
-// @codingStandardsIgnoreEnd
+
 
